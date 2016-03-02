@@ -10,7 +10,7 @@ setcookie($cookie_name,$cookie_value,time() + (86400*30),"/");
 	<title>just test my cookie</title>
 </head>
 <body>
-<?php 
+<?php
 //echo $cookie_name;
 echo $_COOKIE[$cookie_name];
 if(!isset($_COOKIE[$cookie_name]))
@@ -26,3 +26,4 @@ else
 ?>
 </body>
 </html>
+
