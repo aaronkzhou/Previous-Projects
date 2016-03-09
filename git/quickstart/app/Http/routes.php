@@ -36,6 +36,7 @@ Route::get('shit',
 	'as a name'=>'just a name of the calling',
 	'uses'=>'TestController@getShit'
 	]);
+
 Route::resource('product','ProductController');
 
 

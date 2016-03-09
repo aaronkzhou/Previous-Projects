@@ -67,11 +67,14 @@
                         </li>
                     @endif
                 </ul>
+
             </div>
         </div>
     </nav>
 
     @yield('content')
+    @yield('content1')
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
