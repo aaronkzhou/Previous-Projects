@@ -1,11 +1,6 @@
 <?php
 
-$variable=array('2','1','2');
-
-foreach ($variable as $key => $value) {
-	if($value==1){
-		echo "over";
-		break;
-	}
-	echo "again";
-}
+$arr = array("1", "4", "3","100","99");
+sort($arr);
+print_r($arr);
+?>

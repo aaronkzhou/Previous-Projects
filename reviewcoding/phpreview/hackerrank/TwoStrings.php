@@ -30,3 +30,4 @@ for ($i=0; $i <$countline*2 ; $i++) {
 	$strings[]=fgets($handle1);
 }
 echo commonstring($strings,$countline);
+

@@ -21,5 +21,5 @@ for ($i=0; $i < $countcase; $i++) {
 	$result[]=division($arr);
 }
 foreach ($result as $result) {
-	echo $result."\n";
-}
+echo $result."\n";
+

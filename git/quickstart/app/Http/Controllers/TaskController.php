@@ -60,7 +60,7 @@ class TaskController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect('./tasks');
+        return redirect('/tasks');
     }
 
     /**
@@ -76,6 +76,6 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return redirect('./tasks');
+        return redirect('/tasks');
     }
 }
