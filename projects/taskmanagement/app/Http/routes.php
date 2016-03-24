@@ -11,8 +11,6 @@
 |
 */
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -26,17 +24,19 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-	Route::get('/','TaskController@getIndex')->middleware('guest');
-	Route::get('/tasks','TaskController@index');
-	Route::get('/task','TaskController@store');
-	Route::post('/task/{task}','TaskController@destory');
-	Route::auth();
+    Route::get('/','TestController@getIndex')->middleware('guest');
+    Route::get('/tasks', 'TaskController@index');
+    Route::post('/task', 'TaskController@store');
+    Route::delete('/task/{task}', 'TaskController@destroy');
+    Route::auth();
 
-    //
 });
-Route::get('test'
+Route::get('shit',
 	[
-	'as a name'=>'this is just a description',
-	'uses'=>'TestController@getshit'
-	]
-	);
+	'as a name'=>'just a name of the calling',
+	'uses'=>'TestController@getShit'
+	]);
+
+Route::resource('product','ProductController');
+
+
