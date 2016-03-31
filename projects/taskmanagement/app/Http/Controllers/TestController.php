@@ -18,7 +18,7 @@ class testController extends Controller
 		->with('shit2',$shit1);
 	}
 	public function getIndex(){
-		return view('welcome');
+		return "testjklj";
 	}
 }
 

@@ -1,5 +1,11 @@
 @extends('layouts.app')
+
 @section('content')
+@if ($requirementexistence!==0)
+ 	<script type="text/javascript">
+ 		window.location.href='http://localhost/projects/languageexchange/public/'
+ 	</script>
+@else
 	<div class="container">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -13,6 +19,12 @@
 					<label for="task-name" class="col-sm-3 control-label">Name</label>
 						<div class="col-md-8">
 						<input class="form-control" type="text" name="name" >
+						</div>
+					</div>
+					<div class="form-group">
+					<label for="task-name" class="col-sm-3 control-label">Age</label>
+						<div class="col-md-8">
+						<input class="form-control" type="text" name="age" >
 						</div>
 					</div>
 					<div class="form-group">
@@ -64,4 +76,5 @@
 			</div>
 		</div>
 	</div>
+@endif
 @endsection

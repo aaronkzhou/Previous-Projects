@@ -26,18 +26,14 @@
 
 Route::group(['middleware' => ['web']], function (){
 
-	Route::get('/', function() {
-    return view('welcome');
-	});
+	Route::get('/','RequirementController@welcome');
 	Route::get('/requirements','RequirementController@index');
 	Route::post('/requirement','RequirementController@store');
 	//Route::post('/images','RequirementController@uploadimg');
-	Route::delete('/requirement/{requirement}', 'RequirementController@delete');
+	//Route::delete('/requirement/delete/{id}', 'RequirementController@delete');
+	Route::put('/requirement/edit/{id}','RequirementController@updatepersonalinfo');
+	Route::get('/requirement/{id}','RequirementController@getspecifyinfo');
+	Route::get('/requirement/getalloverallinfo','RequirementController@getalloverallinfo');
 	Route::auth();
-	Route::get('/images', function() {
-    return view('requirements.uploadimg');
-	});
-	Route::post('/image','RequirementController@uploadimg');
-
     
 });
