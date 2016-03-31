@@ -1,7 +1,6 @@
 var requirement=angular.module('languageexchange',[]);
 requirement.controller('myrequirement',function($http,$scope,requirementservice){
-
-    //$scope.specificdata＝{};
+    $scope.specificdata={};
     $scope.loading=true;
     //$scope.test={};
 
@@ -11,12 +10,12 @@ requirement.controller('myrequirement',function($http,$scope,requirementservice)
     });
     $scope.updatespecificdata=function(){
       $scope.loading=true;
-      requirementservice.updatespecific().success(function(){
+      requirementservice.updatespecific($scope.specificdata).success(function(){
           $scope.specificrequirement=$scope.specificdata;
           $scope.loading=false;
       })
       .error(function(specificdata) {
-          console.log(specificdata);
+          console.log($scope.specificdata);
       });
     };
     requirementservice.getspecific().success(function(mydata){

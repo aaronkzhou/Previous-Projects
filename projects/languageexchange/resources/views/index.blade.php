@@ -130,7 +130,7 @@
 			<div ng-controller="modal">
 				<button ng-click="toggleModal()" class="btn btn-primary">Edit</button>
 				<modaldialog title="Login form" visible="showModal">
-			    <form method="POST" class="form-horizontal" ng-controller="myrequirement" ng-submit="updatespecific({{$user}})">
+			    <form method="POST" class="form-horizontal" ng-controller="myrequirement" ng-submit="updatespecificdata({{$user}})">
 				{!! csrf_field() !!}
 				@include('common.errors')
 					<div class="form-group">
