@@ -51,11 +51,11 @@ class RequirementController extends Controller
         return redirect('/');
     }
     public function index(Request $request){
+
         $requirementexistence=requirement::where('user_id',($request->user()->id))->count();
         //($request->user()->id)
     	return view('requirements.index')
         ->with('requirementexistence',$requirementexistence);
-       
     }
     // public function delete(Request $request){
     //     requirement::where('user_id',$request->user()->id)
@@ -64,22 +64,23 @@ class RequirementController extends Controller
     public function updatepersonalinfo(Request $request){
         requirement::where('user_id',$request->user()->id)
                     ->update(array(
-                        'name'=>input::get('name'),
-                        'age'=>input::get('age'),
-                        'location'=>input::get('location'),
-                        'sex'=>input::get('sex'),
-                        'mainlang'=>input::get('mainlang'),
-                        'practicelang'=>input::get('practicelang'),
-                        'description'=>Form::textarea('description')
+                        'name'=>$request->name,
+                        'age'=>$request->age,
+                        'location'=>$request->location,
+                        'sex'=>$request->sex,
+                        'mainlang'=>$request->mainlang,
+                        'practicelang'=>$request->practicelang,
+                        'description'=>$request->description
                     ));
+        $file=$request->file;
+        Storage::disk('public')->move($file,'Contents');
+        return redirect('/');
     }
     public function getalloverallinfo(){
-        //echo requirement::all();
-        return response()->json(requirement::all());
+        return requirement::all();
     }
-    public function getspecifyinfo(Request $request){
-       return response()->json(requirement::where('user_id',$request->user()->id)->get());
+    public function getspecifyinfo($id){
+       return response()->json(requirement::where('user_id',$id)->get());
     }
-
 }
 

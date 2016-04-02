@@ -1,45 +1,52 @@
 var requirement=angular.module('languageexchange',[]);
 requirement.controller('myrequirement',function($http,$scope,requirementservice){
     $scope.specificdata={};
-    $scope.loading=true;
     //$scope.test={};
 
     requirementservice.getall().success(function(getalldata){
         $scope.allrequirements=getalldata;
-        $scope.loading=false;
     });
-    $scope.updatespecificdata=function(){
-      $scope.loading=true;
-      requirementservice.updatespecific($scope.specificdata).success(function(){
-          $scope.specificrequirement=$scope.specificdata;
-          $scope.loading=false;
+    $scope.updatespecificdata=function(id){
+      requirementservice.updatespecific($scope.specificdata,id).success(function(){
+          //alert('it works');
+          requirementservice.getspecific(id).success(function(getdata){
+        $scope.getspecific=getdata;
+        window.location = "./"
+        console.log($scope.getspecific);
       })
-      .error(function(specificdata) {
+      .error(function(getdata){
+          console.log(getdata);
+      });
+      })
+      .error(function(){
+          //$scope.getspecific=$scope.specificdata;
           console.log($scope.specificdata);
       });
+    //$scope.$apply();
     };
-    requirementservice.getspecific().success(function(mydata){
+    $scope.getspecificdata=function(id){
+    requirementservice.getspecific(id).success(function(mydata){
         $scope.getspecific=mydata;
-        $scope.loading=true;
     })
     .error(function(mydata){
         console.log(mydata);
     });
+    };
 });
 requirement.factory('requirementservice',function ($http) {
 return{
     //get all infomation of all users
     getall:function(){
-        return $http.get('./requirement/getalloverallinfo');
+        return $http.get('./requirement/query/all');
     },
     //update specific info of users
     updatespecific:function(specificdata,id){
-        return $http({
-                    method: 'POST',
-                    url: './requirement/edit/'+id,
-                    headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
-                    data: $.param(specificdata)
-                });
+        // return $http({
+        //             method: 'POST',
+        //             url: './requirement/edit/'+id,
+        //             data: $.param(specificdata)
+        //         });
+        return $http.post('requirement/edit/'+id,specificdata);
     },
     getspecific:function(id){
         return $http.get('./requirement/'+id);
@@ -91,8 +98,8 @@ requirement.directive('modaldialog', function () {
         $(element).on('hidden.bs.modal', function(){
           scope.$apply(function(){
             scope.$parent[attrs.visible] = false;
+            });
           });
-        });
-      }
-    };
+        }
+      };
   });

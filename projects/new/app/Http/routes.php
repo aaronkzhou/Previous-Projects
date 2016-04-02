@@ -11,7 +11,9 @@
 |
 */
 
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +26,6 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function (){
-
-	Route::get('/','RequirementController@welcome');
-	Route::get('/requirements','RequirementController@index');
-	Route::post('/requirement','RequirementController@store');
-	//Route::post('/images','RequirementController@uploadimg');
-	//Route::delete('/requirement/delete/{id}', 'RequirementController@delete');
-	Route::post('/requirement/edit/{id}','RequirementController@updatepersonalinfo');
-	Route::get('/requirement/{id}','RequirementController@getspecifyinfo');
-	Route::get('/requirement/query/all','RequirementController@getalloverallinfo');
-	Route::auth();
-    
+Route::group(['middleware' => ['web']], function () {
+    //
 });

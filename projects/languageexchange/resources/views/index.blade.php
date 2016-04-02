@@ -5,7 +5,7 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="col-xs-6 col-md-8">
-			<table class="table table-striped">
+			<table class="table table-striped" ng-controller="myrequirement">
 				<thead>
 					<tr>
 						<th>
@@ -18,79 +18,23 @@
 							<b>Main Language</b>
 						</th>
 						<th>
-							<b>Practice Language</b>
+							<b>Practice Language:</b>
 						</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody ng-repeat="allrequirement in allrequirements">
 					<tr>
-						<td>
-							1
+						<td >
+							@{{allrequirement.name}}
 						</td>
 						<td>
-							TB - Monthly
+							@{{allrequirement.location}}
 						</td>
 						<td>
-							01/04/2012
+							@{{allrequirement.mainlang}}
 						</td>
 						<td>
-							Default
-						</td>
-					</tr>
-					<tr>
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr>
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr>
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
-					<tr>
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
+							@{{allrequirement.practicelang}}
 						</td>
 					</tr>
 				</tbody>
@@ -104,33 +48,33 @@
 			</form>
 			<br>
 			<hr/>
-			<dl ng-controller="myrequirement">
-				<dt>
-					<b>Name:@{{ getspecific[0].name }}</b>
-				</dt>
-				<dt>
-					<b>Sex:@{{	getspecific[0].sex}}</b>
-				</dt>
+			<dl ng-controller="myrequirement" ng-init="getspecificdata({{$user}})" ng-hide="loading">
 				<dd>
-					<b>Age:@{{	getspecific[0].age}}</b>
+					Name:<b ng-bind="getspecific[0].name"></b>
 				</dd>
 				<dd>
-					<b>Location:@{{getspecific[0].location}}</b>
+					Sex:<b ng-bind="getspecific[0].sex"></b>
 				</dd>
 				<dd>
-					<b>Main language:@{{getspecific[0].mainlang}}</b>
+					Age:<b ng-bind="getspecific[0].age"></b>
 				</dd>
 				<dd>
-					<b>Practice language:@{{getspecific[0].practicelang}}</b>
+					Location:<b ng-bind="getspecific[0].location"></b>
 				</dd>
 				<dd>
-					<b>Tell me about yourself:@{{getspecific[0].description}}</b>
+					Main language:<b ng-bind="getspecific[0].mainlang"></b>
+				</dd>
+				<dd>
+					Practice language:<b ng-bind="getspecific[0].practicelang"></b>
+				</dd>
+				<dd>
+					Description:<b ng-bind="getspecific[0].description"></b>
 				</dd>
 			</dl>
 			<div ng-controller="modal">
 				<button ng-click="toggleModal()" class="btn btn-primary">Edit</button>
-				<modaldialog title="Login form" visible="showModal">
-			    <form method="POST" class="form-horizontal" ng-controller="myrequirement" ng-submit="updatespecificdata({{$user}})">
+				<modaldialog title="Update your information" visible="showModal">
+			    <form method="POST" class="form-horizontal" ng-controller="myrequirement" ng-submit="updatespecificdata({{$user}})" ng-init="getspecificdata({{$user}})">
 				{!! csrf_field() !!}
 				@include('common.errors')
 					<div class="form-group">
