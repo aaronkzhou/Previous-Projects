@@ -29,26 +29,8 @@ class RequirementController extends Controller
     }
     public function store(Request $request)
     {
-    	$this->validate($request,[
-    		'name'=>'required|max:255',
-    		'location'=>'required|max:255',
-    		'mainlang'=>'required|max:255',
-    		'practicelang'=>'required|max:255',
-            'description'=>'required|max:100000',
-            'age'=>'required|numeric'
-    	]);
-    	$request->user()->requirements()->create([
-    		'name'=>$request->name,
-    		'location'=>$request->location,
-    		'sex'=>$request->sex,
-    		'mainlang'=>$request->mainlang,
-    		'practicelang'=>$request->practicelang,
-            'description'=>$request->description,
-            'age'=>$request->age
-            ]);
-        $file=$request->file;
-        Storage::disk('public')->put($file, 'Contents');
-        return redirect('/');
+    	echo ($request->name);
+        //return redirect('/');
     }
     public function index(Request $request){
 
