@@ -25,7 +25,10 @@ Route::get('/', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
+Route::group(array('prefix' =>'api'),function(){
+	Route::resource('time', 'TimeEntriesController');
+    Route::resource('users', 'UsersController');
+});
 Route::group(['middleware' => ['web']], function () {
     //
 });
