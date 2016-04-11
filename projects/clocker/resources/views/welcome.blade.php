@@ -32,7 +32,7 @@
                     </input>
                     <button class="btn btn-primary" ng-click="vm.logNewTime()">Log Time</button>
                 </form>
-            </div>  
+            </div>
         </div>
     </nav>
 
@@ -43,15 +43,15 @@
                     <div class="col-sm-8">
                         <h4><i class="glyphicon glyphicon-user"></i>
                         @{{time.user.first_name}} @{{time.user.last_name}}</h4>
-                        <p><i class="glyphicon glyphicon-pencil"></i> @{{time.comment}}</p>                  
+                        <p><i class="glyphicon glyphicon-pencil"></i> @{{time.comment}}</p>
                     </div>
                     <div class="col-sm-4 time-numbers">
                         <h4>
-                        <i class="glyphicon glyphicon-calendar"></i> 
+                        <i class="glyphicon glyphicon-calendar"></i>
                         @{{time.end_time | date:'mediumDate'}}
                         </h4>
                         <h2>
-                            <span class="label label-primary" 
+                            <span class="label label-primary"
                                   ng-show="time.loggedTime.duration._data.hours > 0">
                                   @{{time.loggedTime.duration._data.hours}} hour
                                   <span ng-show="time.loggedTime.duration._data.hours > 1">s</span>
@@ -93,7 +93,7 @@
                 <div class="edit-controls">
                     <button class="btn btn-primary btn-sm" ng-click="vm.updateTimeEntry(time)">Save</button>
                     <button class="btn btn-danger btn-sm" ng-click="showEditDialog = false">Close</button>
-                </div>                            
+                </div>
             </div>
 
             </div>
