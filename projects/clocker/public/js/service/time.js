@@ -56,7 +56,7 @@
             function saveTime(data) {
 
               return Time.save(data).$promise.then(function(success) {
-                console.log(success);
+                //console.log(success);
               }, function(error) {
                 console.log(error);
               });

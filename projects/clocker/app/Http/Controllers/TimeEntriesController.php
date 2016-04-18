@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Request;
-//use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use App\TimeEntries;
 use App\Http\Requests;
 
@@ -14,15 +14,11 @@ class TimeEntriesController extends Controller
 
         return $time;
     }
-    public function store()
+    public function store(Request $request)
 	{
-	    $data = Request::all();
+	    //return var_dump($request);
 
-	    $timeentry = new TimeEntries();
-
-	    $timeentry->fill($data);
-
-	    $timeentry->save();
+	    
 
 	}
 	public function update($id)

@@ -5,12 +5,14 @@ comment.factory('commentservice',function($http){
 			return $http.get('./comment/getall');
 		},
 		store:function(commentdata){
-			console.log(commentdata);
+			 //var commentdata=commentdata.toSource();
+			var commentdata=(commentdata);
 			return $http({
 				method:'POST',
 				url:'./comment/store',
-				data:$.param(commentdata)
+				data:commentdata
 			});
+			//return $http.post('./comment/store',commentdata);
 
 		},
 		destroy:function(id){

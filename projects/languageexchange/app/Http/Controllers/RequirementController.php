@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Storage;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request1;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;

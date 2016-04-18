@@ -7,6 +7,7 @@ use Log;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+
 class CommentController extends Controller
 {
     public function getall(){
@@ -16,17 +17,21 @@ class CommentController extends Controller
     }
     public function store(Request $request){
 
-    	Comment::insert([
+        //echo $_POST[''];
+    	Comment::create([
     		'author'=>$request->author,
     		'text'=>$request->text
     	]);
+        //echo $request;
+        //echo $request->author;
+    	//return ($request->author);
+    
 
-    	//return (var_dump($request->input()));
     }
     public function deletecomment($id){
     	Comment::destroy($id);
         Log::warning('Something could be going wrong.');
     	return (array('success'=>true));
     }
-    
+
 }
