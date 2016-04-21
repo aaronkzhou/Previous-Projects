@@ -8,19 +8,12 @@ function solution($A) {
 	$leftsidea=0;
 	$rightsidea=0;
 
-	foreach ($A as $key => $value) {
+	for($i=0;$i<$counta-1;$i++)
+	{
 
-		for ($j=$key+1; $j<$counta ; $j++) {
-			$rightsidea=$A[$j]+$rightsidea;
-			//echo $rightsidea;
-		}
-
+		$rightsidea=array_sum(array_slice($A,$i+1,$counta-$i-1));
+		$leftsidea=array_sum(array_slice($A,0,$i+1));
 		//echo $rightsidea.".";
-		for($i=0;$i<$key;$i++){
-			$leftsidea=$A[$i]+$leftsidea;
-			//echo $i;
-			echo $leftsidea;
-		}
 		
 		//echo $leftsidea;
 		//echo $leftsidea.".";
@@ -30,5 +23,5 @@ function solution($A) {
 
 	}
 	//var_dump($z);
-	//echo min($j);
+	echo min($z);
 }
