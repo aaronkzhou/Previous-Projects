@@ -137,5 +137,21 @@ class BST{
             $this->parent = null;
         }
     }
+    public function walk(Node $node = null)
+    {
+        if (!$node) {
+            $node = $this->root;
+        }
+        if (!$node) {
+            return false;
+        }
+        if ($node->left) {
+            yield from $this->walk($node->left);
+        }
+        yield $node;
+        if ($node->right) {
+            yield from $this->walk($node->right);
+        }
+    }
 
 }
