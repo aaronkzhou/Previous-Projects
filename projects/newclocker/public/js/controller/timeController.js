@@ -69,7 +69,7 @@
 
 		  // Deselect the user
 		  vm.timeEntryUser = "";
-    	
+
     }
     vm.updateTimeEntry=function(timeentry){
         var updatedTimeEntry={

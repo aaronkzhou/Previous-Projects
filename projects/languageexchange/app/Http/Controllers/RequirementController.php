@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Storage;
-use Illuminate\Http\Request1;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\requirement;
 use App\Repositories\RequirementRepository;
 
@@ -29,8 +29,20 @@ class RequirementController extends Controller
     }
     public function store(Request $request)
     {
-    	echo ($request->name);
+    	//echo ($request->name);
         //return redirect('/');
+        requirement::create(array(
+                'name'=>$request->name,
+                'age'=>$request->age,
+                'location'=>$request->location,
+                'sex'=>$request->sex,
+                'mainlang'=>$request->mainlang,
+                'practicelang'=>$request->practicelang,
+                'description'=>$request->description,
+                'user_id'=>$request->user()->id
+            ));
+        //return( $request->user()->id);
+        return redirect('/');
     }
     public function index(Request $request){
 
@@ -44,6 +56,7 @@ class RequirementController extends Controller
     //                 ->delete();
     // }
     public function updatepersonalinfo(Request $request){
+
         requirement::where('user_id',$request->user()->id)
                     ->update(array(
                         'name'=>$request->name,

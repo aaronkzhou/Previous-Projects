@@ -85,7 +85,19 @@ class ExampleTest extends TestCase
           'name2'=>[0,0,0]
         );
     }
-    
+    public function testSomething()
+    {
+        // Optional: Test anything here, if you want.
+        $this->assertTrue(TRUE, 'This should already work.');
+
+        // Stop here and mark this test as incomplete.
+        // $this->markTestIncomplete(
+        //   'This test has not been implemented yet.'
+        // );
+    }
+    public function testCalculate(){
+        $this->assertEquals(2,1+1);
+    }
 
 
 

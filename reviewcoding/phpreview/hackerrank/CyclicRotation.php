@@ -1,4 +1,4 @@
-<?php
+ΩΩ<?php
 
 solution([3, 8, 9, 7, 6], 13);
 function solution($A, $K){

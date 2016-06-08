@@ -1,3 +1,4 @@
+<?php
 function quickSort($arr) {
     //先判断是否需要继续进行
     $length = count($arr);
