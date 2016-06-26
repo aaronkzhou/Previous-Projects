@@ -73,3 +73,7 @@ case when Grades.grade < 8 then 'NULL'
 else 
 Students.Name end, Grades.grade, Students.Marks from Students inner join Grades on Students.Marks >= Grades.Min_Mark and Students.Marks <= Grades.Max_Mark 
 order by Grades.grade desc, Students.Name asc, Students.Marks DESC
+
+
+insert into table(column1, column2, column3,column4)
+values('value1','value2','value3','value4')
