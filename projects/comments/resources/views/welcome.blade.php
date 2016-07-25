@@ -12,11 +12,11 @@
         form        { padding-bottom:20px; }
         .comment    { padding-bottom:20px; }
     </style>
-    
+
     <!-- JS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
-    
+
     <!-- ANGULAR -->
     <!-- all angular resources will be loaded from the /public folder -->
         <script src="js/main.js"></script> <!-- load our controller -->
