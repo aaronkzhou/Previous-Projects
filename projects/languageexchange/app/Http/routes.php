@@ -37,3 +37,7 @@ Route::group(['middleware' => ['web']], function (){
 	Route::auth();
     
 });
+Route::group(['middleware'=>['web']],function(){
+	Route::get('/','RequirementController@welcome');
+	Route::get('/requirement','Requirement')
+})
