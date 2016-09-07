@@ -18,10 +18,11 @@
 </head>
 
 <body class="container fluid" ng-app="cart" ng-controller="cartcontroller">
-<div class="col-md-8">
+<div class="col-md-7">
     <div class="page-header">
         <h2>Product List</h2>
     </div>
+    <form>
     <table class="col-md-8">
         <thead>
           <tr>
@@ -30,35 +31,42 @@
             <th>Price</th>
           </tr>
           <tbody ng-repeat="(key,productinfo) in productinfos" >
-              <tr>
+              <tr >
                 <td>@{{key+1}}</td>
                 <td>@{{productinfo.name}}</td>
-                <td>@{{productinfo.price}}</td>
-                <td><a href="#" ng-click="deletecart(cart.id)" class="text-muted">add to shopcart</a></td>
+                <td>@{{(productinfo.price).toFixed(2)}}</td>
+                <td><a herf="#" ng-click="add(productinfo,key)" >[add to shopcart]</a></td>
               </tr>
           </tbody>
         </thead>
     </table>
+    </form>
 </div>
-<div class="col-md-4">
+<div class="col-md-5">
     <h3>ShopCart</h3>
     <p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin"></span></p>
-    <div class="cart" ng-hide="loading" ng-repeat="cart in carts">
+    <div class="cart" ng-hide="loading">
     <table class="col-md-12">
     <thead>
         <tr>
             <th>Name</th>
             <th>Quantity</th>
             <th>Price</th>
-          </tr>
+            <th>Subtotal</th>
+            <th><a herf="#" ng-click="clear()" >[Empty Cart]</a></th>
+        </tr>
         <tbody>
-        <tr>
-            <td>@{{ cart.name }}</td>
-            <td>@{{ cart.quantity }} </td>
-            <td>@{{cart.price}}</td>
+        <tr ng-repeat="(key,cart) in carts">
+            <td>@{{ key }}</td>
+            <td>@{{ cart.qty }}</td>
+            <td>$@{{(cart.price).toFixed(2)}}</td>
+            <td>$@{{(cart.price*cart.qty).toFixed(2)}}</td>
+            <td><a herf="#" ng-click="remove(key)" >[Remove Cart]</a></td>
         </tr>
         </tbody>
-    </thead>    
+        <div>Total:$@{{getTotal()}}</div>
+    </thead>
+
     </div>
 </div>
 </body>

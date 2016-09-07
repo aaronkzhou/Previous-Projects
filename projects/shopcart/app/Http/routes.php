@@ -28,11 +28,6 @@ Route::get('/', function () {
 Route::get('cart/getall','CartController@getAllCartInfo');
 Route::get('cart/getinfo','CartController@getAllProductInfo');
 Route::post('cart/store','CartController@store');
-Route::delete('cart/{comment}','CommentController@deletecart');
-
-// App::missing(function($exception)
-// {
-//     return Response::view('errors.404', array(), 404);
-// });
-
-
+Route::post('cart/add','CartController@add');
+Route::get('cart/clear','CartController@destroy');
+Route::get('cart/remove/{name}','CartController@remove');
