@@ -6,26 +6,22 @@
 <head>
 	<% base_tag %>
 	$MetaTags(false)
-	<title>One Ring Rentals: $Title</title>	
+	<title>One Ring Rentals: $Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-	
 	<!-- IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
 <body>
 	<div id="wrapper">
 
 		<header id="header">
-			<% include TopBar %>			
+			<% include TopBar %>
 			<% include MainNav %>
 		</header>
-		
 		$Layout
-		
-		<% include Footer %>		
-	</div>	
+		<% include Footer %>
+	</div>
 </body>
 </html>

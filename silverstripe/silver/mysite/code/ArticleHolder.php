@@ -34,7 +34,7 @@ class ArticleHolder extends Page {
 
 	public function ArchiveDates() {
 		$list = ArrayList::create();
-		$stage = Versioned::current_stage();		
+		$stage = Versioned::current_stage();
 
 		$query = new SQLQuery(array ());
 		$query->selectField("DATE_FORMAT(`Date`,'%Y_%M_%m')","DateString")
@@ -43,7 +43,6 @@ class ArticleHolder extends Page {
 			  ->setDistinct(true);
 
 		$result = $query->execute();
-		
 		if($result) {
 			while($record = $result->nextRecord()) {
 				list($year, $monthName, $monthNumber) = explode('_', $record['DateString']);
@@ -128,7 +127,6 @@ class ArticleHolder_Controller extends Page_Controller {
 		if(!$year) return $this->httpError(404);
 
 		$startDate = $month ? "{$year}-{$month}-01" : "{$year}-01-01";
-		
 		if(strtotime($startDate) === false) {
 			return $this->httpError(404, 'Invalid date');
 		} 

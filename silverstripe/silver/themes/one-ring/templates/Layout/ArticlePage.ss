@@ -5,26 +5,21 @@
 		
 			<!-- BEGIN MAIN CONTENT -->
 			<div class="main col-sm-8">
-			
 				<h1 class="blog-title">$Title</h1>
-				
 				<div class="blog-main-image">
 				<% with $Photo.SetWidth(750) %>
 					<img src="$URL" width="$Width" height="$Height" class="my-custom-class">
 				<% end_with %>
 					<div class="tag"><i class="fa fa-file-text"></i></div>
 				</div>
-				
 				<div class="blog-bottom-info">
 					<ul>
 						<li><i class="fa fa-calendar"></i> $Date.Long</li>
 						<li><i class="fa fa-comments-o"></i> 3 Comments</li>
 						<li><i class="fa fa-tags"></i> $CategoriesList</li>
 					</ul>
-					
 					<div id="post-author"><i class="fa fa-pencil"></i> By $Author</div>
 				</div>
-				
 				<div class="post-content">
 					<div class="highlight-bold">
 						<% if $Teaser %>
@@ -33,12 +28,9 @@
 							$Content.FirstSentence
 						<% end_if %>
 					</div>
-					
 					<div class="divider"></div>
-					
 					$Content
 				</div>
-				
 				<div class="share-wraper col-sm-12 clearfix">
 					<h5>Share this Post:</h5>
 					<ul class="social-networks">
