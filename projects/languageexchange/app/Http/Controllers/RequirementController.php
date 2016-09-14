@@ -8,6 +8,9 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\requirement;
 use App\Repositories\RequirementRepository;
+use Log;
+use Mail;
+use Illuminate\Contracts\Mail\Mailer;
 
 class RequirementController extends Controller
 {
@@ -77,5 +80,26 @@ class RequirementController extends Controller
     public function getspecifyinfo($id){
        return response()->json(requirement::where('user_id',$id)->get());
     }
+    public function mail(){
+        return view()->make("mail.index");
+    }
+    public function send()
+    {
+        Log::info("Request cycle without Queues started");
+        Mail::send('mail.welcome', ['data'=>'data'], function ($message) {
+
+            $message->from('aaaron.chou@gmdfsail.com', 'fuck off mail system');
+            $message->to('aaaron.chou@gmaidddl.com');
+
+        });
+        Log::info("Request cycle without Queues finished");
+    }
+    public function sendQueue()
+    {
+         Log::info("Request Cycle with Queues Begins");
+        $this->dispatch((new SendWelcomeEmail())->delay(60 * 5));
+        Log::info("Request Cycle with Queues Ends");
+    }
+
 }
 
