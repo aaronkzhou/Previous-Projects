@@ -19,16 +19,18 @@ class RequirementController extends Controller
 
     public function __construct(RequirementRepository $requirements)
     {
-
         $this->middleware('auth');
         $this->requirements=$requirements;
-
     }
     public function welcome(Request $request)
     {
         $user=$request->user()->id;
         return view('index')
         ->with('user',$user);
+    }
+    public function welcome1()
+    {
+        return "hello";
     }
     public function store(Request $request)
     {
@@ -54,10 +56,7 @@ class RequirementController extends Controller
     	return view('requirements.index')
         ->with('requirementexistence',$requirementexistence);
     }
-    // public function delete(Request $request){
-    //     requirement::where('user_id',$request->user()->id)
-    //                 ->delete();
-    // }
+
     public function updatepersonalinfo(Request $request){
 
         requirement::where('user_id',$request->user()->id)
