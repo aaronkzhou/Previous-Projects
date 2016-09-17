@@ -15,15 +15,16 @@ use Illuminate\Contracts\Mail\Mailer;
 class RequirementController extends Controller
 {
 
-    protected $requirements;
+    //protected $requirements;
 
     public function __construct(RequirementRepository $requirements)
     {
         $this->middleware('auth');
-        $this->requirements=$requirements;
+        //$this->requirements=$requirements;
     }
     public function welcome(Request $request)
     {
+        $this->middleware('auth');
         $user=$request->user()->id;
         return view('index')
         ->with('user',$user);
@@ -34,8 +35,6 @@ class RequirementController extends Controller
     }
     public function store(Request $request)
     {
-    	//echo ($request->name);
-        //return redirect('/');
         requirement::create(array(
                 'name'=>$request->name,
                 'age'=>$request->age,
@@ -46,7 +45,6 @@ class RequirementController extends Controller
                 'description'=>$request->description,
                 'user_id'=>$request->user()->id
             ));
-        //return( $request->user()->id);
         return redirect('/');
     }
     public function index(Request $request){

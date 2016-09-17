@@ -35,7 +35,4 @@ Route::group(['middleware' => ['web']], function (){
 	Route::get('/mail','RequirementController@mail');
 	Route::get('/mail/send', 'RequirementController@send');
 	Route::auth();
-    
 });
-
-	
