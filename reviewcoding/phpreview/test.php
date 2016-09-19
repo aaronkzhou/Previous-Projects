@@ -1,2 +1,4 @@
+<?php
+$rd = getenv('DOCUMENT_ROOT');  
+echo $rd;
 
-<?php echo '1'.print(5+6); ?>
