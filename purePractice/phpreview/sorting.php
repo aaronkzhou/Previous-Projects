@@ -46,25 +46,25 @@ function selection($array){
 	}
 return $newarray;
 }
-function speedsort($string){
-	$array=explode(" ", $string);
-	$countarray=count($array);
-	$basenum=$array[0];
-	foreach ($array as $key => $value) {
-		if ($value>=$basenum) {
-			$left_array=$value;
-		}
-		else{
-			$right_array=$value;
-		}
-	}
-	$newleft=speedsort($left_array);
-	$newright=speedsort($right_array);
-	$newarray=array_merge($left_array,$basenum,$right_array);
-	return $newarray;
 
+function quicksort($seq)
+{
+ if(!count($seq)) return $seq;
+ $k = $seq[0];
+ $x = $y = array();
+ for($i=count($seq); --$i;)
+ {
+  if($seq[$i] <= $k)
+  {
+   $x[] = $seq[$i];
+  }
+  else
+  {
+   $y[] = $seq[$i];
+  }
+ }
+ return array_merge(quicksort($x),array($k),quicksort($y));
 }
-
 
 
 
