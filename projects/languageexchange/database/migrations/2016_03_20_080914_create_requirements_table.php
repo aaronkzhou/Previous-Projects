@@ -14,6 +14,11 @@ class CreateRequirementsTable extends Migration
     {
         Schema::create('requirements', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('sex');
+            $table->integer('age');
+            $table->text('description');
+            $table->integer('user_id');
             $table->string('location');
             $table->string('mainlang');
             $table->string('practicelang');
