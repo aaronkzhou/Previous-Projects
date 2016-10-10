@@ -7,4 +7,4 @@
 ##Projects/languageexchange: a languageexchange web application which help you make some friends by language exchanging.
 ##Projects/materialstarter: a website about laravel and angular best practice
 ##Projects/movie: a website build in october CMS
-
+##Projects/rotatePic: a js practice on pic rotate
