@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/macbook/.oh-my-zsh
+export ZSH=/Users/apple/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -85,5 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 mypath=${0:a}
 export PATH=/usr/local/bin:$PATH
-alias www='cd ~/docker-compose-php/app/web'
-alias nginxroot='cd /usr/local/var/www'
+alias phpwww='cd ~/dev/docker-compose-php/app/web'
+alias funtown='cd /Users/apple/dev/funtown-web'
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
+export PATH=/Users/apple/dev/docker-compose-php/app/web/aaronunix/tools/apache-maven-3.3.9/bin:$PATH
