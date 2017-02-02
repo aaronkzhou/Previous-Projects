@@ -1,5 +1,5 @@
-
 <?php
+session_start();
 header("Content-type:text/html;charset=utf-8");
 // ######## please do not alter the following code ########
 
@@ -23,15 +23,15 @@ $products = array( array("name" => "Sledgehammer", "price" => 125.75), array("na
 		<td><b>price</b></td>
 	</tr>
 	<?php
-	foreach($products as $key=>$product){
-		$price=sprintf("%.2f", $product['price']);
-		echo '
-		<tr>
-			<td>' . $product['name'] . '</td>
-			<td>$' . $price . '</td>
-			<td><a href="?action=add&name=' . $product['name'] . '">[ Add to cart ]</a></td>
-		</tr>';
-	}
+		foreach($products as $key=>$product){
+			$price=sprintf("%.2f", $product['price']);
+			echo '
+			<tr>
+				<td>' . $product['name'] . '</td>
+				<td>$' . $price . '</td>
+				<td><a href="?action=add&name=' . $product['name'] . '">[ Add to cart ]</a></td>
+			</tr>';
+		}
 	?>
 	</table>
 </div>
