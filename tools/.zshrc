@@ -40,6 +40,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
+
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
@@ -89,3 +90,4 @@ alias phpwww='cd ~/dev/docker-compose-php/app/web'
 alias funtown='cd /Users/apple/dev/funtown-web'
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
 export PATH=/Users/apple/dev/docker-compose-php/app/web/aaronunix/tools/apache-maven-3.3.9/bin:$PATH
+alias webwww='cd /Users/apple/dev/docker-compose-php/app/web/'
