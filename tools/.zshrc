@@ -91,3 +91,5 @@ alias funtown='cd /Users/apple/dev/funtown-web'
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
 export PATH=/Users/apple/dev/docker-compose-php/app/web/aaronunix/tools/apache-maven-3.3.9/bin:$PATH
 alias webwww='cd /Users/apple/dev/docker-compose-php/app/web/'
+alias toec2='ssh -i /Users/apple/dev/ec2/aaron_ec2.pem ubuntu@ec2-13-54-162-120.ap-southeast-2.compute.amazonaws.com'
+alias weather='curl wttr.in/auckland'
